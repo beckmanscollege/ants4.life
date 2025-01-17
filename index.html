@@ -22,7 +22,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .marquee {
@@ -30,19 +38,40 @@
             overflow: hidden;
             white-space: nowrap;
             box-sizing: border-box;
+            text-align: center;
         }
 
         .marquee span {
             display: inline-block;
-            padding-left: 100%;
-            animation: marquee 10s linear infinite;
-            font-size: 1.5rem;
+            font-size: 25vh;
             font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .marquee:nth-child(1) span {
+            color: #ff616f;
+            animation: marquee 8s linear infinite;
+        }
+
+        .marquee:nth-child(2) span {
+            color: #ffa41b;
+            animation: marquee 10s linear infinite;
+        }
+
+        .marquee:nth-child(3) span {
+            color: #24a19c;
+            animation: marquee 12s linear infinite;
+        }
+
+        .marquee:nth-child(4) span {
+            color: #3b60e4;
+            animation: marquee 14s linear infinite;
         }
 
         @keyframes marquee {
             from {
-                transform: translateX(0);
+                transform: translateX(100%);
             }
             to {
                 transform: translateX(-100%);
@@ -51,11 +80,17 @@
     </style>
 </head>
 <body>
-    <h1>Ants 4 Life</h1>
-
-    <div class="marquee"><span>ENYA</span></div>
-    <div class="marquee"><span>CASPAR</span></div>
-    <div class="marquee"><span>LOVISA</span></div>
-    <div class="marquee"><span>Ultimate QuizAnts 2025</span></div>
+    <div class="marquee">
+        <span>ENYA</span>
+    </div>
+    <div class="marquee">
+        <span>CASPAR</span>
+    </div>
+    <div class="marquee">
+        <span>LOVISA</span>
+    </div>
+    <div class="marquee">
+        <span>Ultimate QuizAnts 2025</span>
+    </div>
 </body>
 </html>
