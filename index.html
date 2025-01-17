@@ -17,62 +17,74 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
-
 
         marquee {
             width: 100%;
             box-sizing: border-box;
             text-align: center;
+            visibility: visible;
         }
 
         marquee span {
             display: inline-block;
             font-size: 25vh;
             font-weight: bold;
-            color: white;
             text-transform: uppercase;
-        }
-
-        marquee img {
-            height: 20vh;
-            vertical-align: middle;
-        }
-
-        marquee:nth-child(1) span {
-            color: #ff616f;
-        }
-
-        marquee:nth-child(2) span {
-            color: #ffa41b;
-        }
-
-        marquee:nth-child(3) span {
-            color: #24a19c;
-        }
-
-        marquee:nth-child(4) span {
-            color: #3b60e4;
         }
     </style>
 </head>
 <body>
-    <marquee behavior="scroll" direction="left" scrollamount="10">
+    <marquee behavior="scroll" direction="left" id="marquee1">
         <span>Enya</span>
     </marquee>
-    <marquee behavior="scroll" direction="left" scrollamount="8">
+    <marquee behavior="scroll" direction="left" id="marquee2">
         <span>Caspar</span>
     </marquee>
-    <marquee behavior="scroll" direction="left" scrollamount="6">
+    <marquee behavior="scroll" direction="left" id="marquee3">
         <span>Lovisa</span>
     </marquee>
-    <marquee behavior="scroll" direction="left" scrollamount="6">
+    <marquee behavior="scroll" direction="left" id="marquee4">
         <span>Ultimate QuizAnts 2025</span>
     </marquee>
+
+    <script>
+        // Function to generate a random integer between min and max
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Function to generate a random color
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Randomize scroll amount and color for each marquee
+        const marquees = document.querySelectorAll("marquee");
+        marquees.forEach((marquee) => {
+            const randomScrollAmount = getRandomInt(10, 20); // Faster speeds (10 to 20)
+            const randomDelay = getRandomInt(0, 1); // Very small delay (0 to 1 seconds)
+            const randomColor = getRandomColor();
+
+            // Apply random scroll amount and color
+            marquee.scrollAmount = randomScrollAmount;
+            marquee.style.animationDelay = `${randomDelay}s`;
+            marquee.querySelector("span").style.color = randomColor;
+
+            // Ensure the marquee starts slightly visible
+            marquee.style.visibility = "visible";
+        });
+    </script>
 </body>
 </html>
