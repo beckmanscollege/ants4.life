@@ -22,22 +22,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
 
         marquee {
             width: 100%;
             box-sizing: border-box;
             text-align: center;
-            margin: 10px 0;
         }
 
         marquee span {
@@ -46,13 +37,11 @@
             font-weight: bold;
             color: white;
             text-transform: uppercase;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         marquee img {
             height: 20vh;
             vertical-align: middle;
-            margin-right: 10px;
         }
 
         marquee:nth-child(1) span {
@@ -73,18 +62,16 @@
     </style>
 </head>
 <body>
-    <h1>Ants 4 Life</h1>
-
-    <marquee behavior="scroll" direction="left" scrollamount="4">
+    <marquee behavior="scroll" direction="left" scrollamount="10">
         <span>Enya</span>
     </marquee>
-    <marquee behavior="scroll" direction="left" scrollamount="6">
+    <marquee behavior="scroll" direction="left" scrollamount="8">
         <span>Caspar</span>
     </marquee>
-    <marquee behavior="scroll" direction="left" scrollamount="8">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
         <span>Lovisa</span>
     </marquee>
-    <marquee behavior="scroll" direction="left" scrollamount="10">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
         <span>Ultimate QuizAnts 2025</span>
     </marquee>
 </body>
